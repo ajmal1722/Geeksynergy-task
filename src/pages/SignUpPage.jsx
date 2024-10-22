@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
 const SignUpPage = () => {
     const [formData, setFormData] = useState({
@@ -33,10 +34,12 @@ const SignUpPage = () => {
     
         // If no errors, proceed with form submission logic
         console.log(formData);
+        toast.success('User created successfully')
     };    
 
     return (
         <div className='flex items-center justify-center pt-7'>
+        <ToastContainer />
             <div className="border border-yellow-400 rounded-lg lg:w-1/4 md:w-1/2 w-full m-4 p-6 text-center">
                 <h1 className='text-2xl font-semibold mb-8 mt-2'>Sign Up</h1>
                 <form onSubmit={handleSubmit}>
@@ -83,7 +86,7 @@ const SignUpPage = () => {
                     {/* Profession Dropdown */}
                     <select 
                         name="profession" 
-                        className='px-4 py-2 border border-gray-300 rounded-lg w-full'
+                        className='px-4 py-2 border border-gray-300 rounded-lg w-full mb-6'
                         value={formData.profession}
                         onChange={onChange}
                     >
@@ -95,9 +98,11 @@ const SignUpPage = () => {
                     </select>
 
                     {/* Error display */}
-                    <p className="text-red-600 my-3">
-                        * {error}
-                    </p>
+                    {error && (
+                        <p style={{marginTop: '-12px'}} className="text-red-600 my-3">
+                            * {error}
+                        </p>
+                    )}
 
                     {/* Redirect to Login */}
                     <p className='text-sm mb-6'>

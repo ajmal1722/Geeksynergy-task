@@ -42,7 +42,7 @@ const LoginPage = () => {
                     </button>
                 </form>
             </div> */}
-            
+            Login page
         </div>
     )
 }

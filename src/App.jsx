@@ -5,7 +5,6 @@ import LoginPage from './pages/LoginPage';
 
 function App() {
   
-
   return (
     <Router>
       <Routes>
@@ -14,7 +13,6 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
       </Routes>
     </Router>
-
   )
 }
 
