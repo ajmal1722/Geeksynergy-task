@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
 const SignUpPage = () => {
@@ -12,6 +13,7 @@ const SignUpPage = () => {
     });
 
     const [error, setError] = useState('');
+    const navigate = useNavigate()
 
     const onChange = (e) => {
         setFormData({
@@ -32,11 +34,22 @@ const SignUpPage = () => {
             }
         }
     
+        // Get existing users from localStorage
+        const existingUsers = JSON.parse(localStorage.getItem('userData')) || [];
+    
+        // Add the new user to the array
+        const updatedUsers = [...existingUsers, formData];
+    
+        // Store the updated users array in localStorage
+        localStorage.setItem('userData', JSON.stringify(updatedUsers));
+    
         // If no errors, proceed with form submission logic
-        console.log(formData);
-        toast.success('User created successfully')
+        console.log('User data:', formData);
+    
+        // Redirect to login page after successful sign-up
+        navigate('/login');
     };    
-
+    
     return (
         <div className='flex items-center justify-center pt-7'>
         <ToastContainer />
