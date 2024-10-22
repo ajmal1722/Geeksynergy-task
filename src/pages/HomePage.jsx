@@ -35,13 +35,15 @@ const HomePage = () => {
             {error && <p className="text-red-600">{error}</p>}
             <div className="mt-4">
                 {movies.length > 0 ? (
-                    <ul>
-                        {movies.map(movie => (
-                            <SingleMovies key={movie.Title} movie={movie} />
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        {movies.map((movie) => (
+                            <li key={movie.Title}>
+                                <SingleMovies movie={movie} />
+                            </li>
                         ))}
                     </ul>
                 ) : (
-                    <p>No movies available</p>
+                    <p className="text-center text-gray-500 text-lg">No movies available</p>
                 )}
             </div>
         </div>
