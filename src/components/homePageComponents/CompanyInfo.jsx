@@ -10,7 +10,7 @@ const CompanyInfo = () => {
     return (
         <div className="relative">
             <button 
-                className='bg-green-600 hover:scale-105 text-white text-lg p-2 px-3 m-5 my-10 lg:mx-16 rounded'
+                className='bg-green-600 hover:scale-105 text-white text-lg p-2 px-3 m-5 my-6 lg:mx-16 rounded'
                 onClick={handleToggle} // Handle button click
             >
                 Company Info
