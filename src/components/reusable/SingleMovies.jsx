@@ -14,8 +14,15 @@ const SingleMovies = ({ movie }) => {
                 <h1 className="text-lg font-semibold text-gray-800 truncate">
                     {movie.Title}
                 </h1>
-                <p className="mb-1 text-sm text-gray-600"><span className="font-bold">Released Year:</span> { movie.Year }</p>
-                <p className="mb-1 text-sm text-gray-600"><span className="font-bold">Type:</span> { movie.Type }</p>
+                <p className="mb-1 text-sm text-gray-600">
+                    <span className="font-bold">Released Year:</span> { movie.Year }
+                </p>
+                <p className="mb-1 text-sm text-gray-600">
+                    <span className="font-bold">Type:</span> { movie.Type }
+                </p>
+                <p className="mb-1 text-sm text-gray-600">
+                    <span className="font-bold">Rating:</span> { movie.Rating } / 10
+                </p>
             </div>
         </div>
     );

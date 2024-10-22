@@ -15,7 +15,13 @@ const HomePage = () => {
                 }
                 const data = await response.json();
                 if (data.Search) {
-                    setMovies(data.Search); // Store the fetched movies
+                    // Add random ratings to each movie and sort them
+                    const moviesWithRatings = data.Search.map(movie => ({
+                        ...movie,
+                        Rating: (Math.random() * (9 - 4) + 4).toFixed(1), // Generate random rating between 1 and 10
+                    })).sort((a, b) => b.Rating - a.Rating); // Sort by rating (highest first)
+
+                    setMovies(moviesWithRatings);
                 } else {
                     setError('No movies found');
                 }
