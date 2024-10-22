@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SingleMovies from "../components/reusable/SingleMovies";
+import CompanyInfo from "../components/homePageComponents/CompanyInfo";
 
 const HomePage = () => {
     const [movies, setMovies] = useState([]);
@@ -27,8 +28,10 @@ const HomePage = () => {
     }, []);
 
     return (
-        <div className='text-xl text-center'>
-            <h1>Home Page</h1>
+        <div className=''>
+            <div className="w-full flex justify-end px-8">
+                <CompanyInfo />
+            </div>
             {error && <p className="text-red-600">{error}</p>}
             <div className="mt-4">
                 {movies.length > 0 ? (
