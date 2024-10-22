@@ -52,8 +52,8 @@ const SignUpPage = () => {
     
     return (
         <div className='flex items-center justify-center pt-7'>
-        <ToastContainer />
-            <div className="border border-yellow-400 rounded-lg lg:w-1/4 md:w-1/2 w-full m-4 p-6 text-center">
+            <ToastContainer />
+            <div className="border border-yellow-400 rounded-lg lg:w-1/4 md:w-1/2 w-full m-4 mt-12 p-6 text-center">
                 <h1 className='text-2xl font-semibold mb-8 mt-2'>Sign Up</h1>
                 <form onSubmit={handleSubmit}>
                     {/* Name Field */}

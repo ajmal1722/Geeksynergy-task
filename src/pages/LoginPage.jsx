@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
 const LoginPage = () => {
@@ -8,6 +8,7 @@ const LoginPage = () => {
         password: '',
     });
 
+    const navigate = useNavigate()
     const [error, setError] = useState('');
     const [userData, setUserData] = useState([]);
 
@@ -46,16 +47,17 @@ const LoginPage = () => {
         if (user) {
             toast.success('Login successful!');
             console.log('Logged in:', formData);
-            // Add your login success logic here
+            
+            navigate('/')
         } else {
-            setError('Invalid username or password');
+            setError('Invalid Credentials');
         }
     };
 
     return (
         <div className='flex items-center justify-center pt-12'>
             <ToastContainer />
-            <div className="border border-yellow-400 rounded-lg lg:w-1/4 md:w-1/2 w-full m-4 p-6 text-center">
+            <div className="border border-yellow-400 rounded-lg lg:w-1/4 md:w-1/2 w-full m-4 p-6 text-center mt-24">
                 <h1 className='text-2xl font-semibold mb-8 mt-2'>Login</h1>
                 <form onSubmit={handleSubmit}>
                     {/* Name Field */}
